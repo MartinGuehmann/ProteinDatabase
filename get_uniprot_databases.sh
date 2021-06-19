@@ -11,5 +11,5 @@ done
 # Directory and the name of this script
 DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
-"$DIR/get_uniprot_sprot.sh" &
-"$DIR/get_uniprot_trembl.sh" &
+"$DIR/get_uniprot_database.sh" "uniprot_sprot" &
+"$DIR/get_uniprot_database.sh" "uniprot_trembl" &
