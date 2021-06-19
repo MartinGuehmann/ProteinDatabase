@@ -11,10 +11,12 @@ done
 # Directory and the name of this script
 DIR="$( cd -P "$( dirname "$SOURCE" )" && pwd )"
 
-mkdir -p "$DIR/uniprot_sprot"
+database="$1"
 
-cd "$DIR/uniprot_sprot"
+mkdir -p "$DIR/$database"
 
-wget ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/uniprot_sprot.fasta.gz
-gunzip uniprot_sprot.fasta.gz
-makeblastdb -in uniprot_sprot.fasta -out uniprot_sprot -dbtype prot
+cd "$DIR/$database"
+
+wget "ftp://ftp.uniprot.org/pub/databases/uniprot/current_release/knowledgebase/complete/$database.fasta.gz"
+gunzip "$database.fasta.gz"
+makeblastdb -in "$database.fasta" -out "$database" -dbtype prot
